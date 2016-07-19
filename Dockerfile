@@ -1,1 +1,1 @@
-FROM python
+FROM yuxio/flask-python351
