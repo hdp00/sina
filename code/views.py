@@ -6,12 +6,13 @@ from flask.helpers import url_for
 from flask.templating import render_template
 
 plan = Flask(__name__)
-tasks = TaskManager()
+#tasks = TaskManager()
 
 @plan.route('/')
 @plan.route('/index')
 def index():
-    return plan.send_static_file('index.html')
+    #return plan.send_static_file('index.html')
+    return 'test'
 
 @plan.route('/getTasks', methods=['GET', 'POST'])
 def getTasks():
