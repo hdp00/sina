@@ -1,0 +1,19 @@
+[
+	{
+		"name":"任务A",
+		"beginTime":"06:00",
+		"endTime":"12:00"
+	},
+	{
+		"name":"任务B",
+		"beginTime":"12:00"
+	},
+	{
+		"name":"任务C",
+		"endTime":"02:00"
+	},
+	{
+		"name":"任务D",
+		"beginTime":"20:00"
+	}
+]
