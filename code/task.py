@@ -69,9 +69,7 @@ class TaskManager():
     '''任务管理'''
     
     _fileName = 'json'
-    #debug
-    #_dbName = 'recorder'
-    _dbName = '/hdpData/recorder'
+    _dbName = '../data/recorder'
     
     def __init__(self): 
         self.initDatabase()   
