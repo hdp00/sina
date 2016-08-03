@@ -37,6 +37,8 @@
 				//var address = "http://0.0.0.0:5050/getTasks";
 				$.post(address, { "name": name },
                 function (data, status) {
+					//去除sb新浪的附加代码
+					data = data.split("<")[0];
                 	tasks = JSON.parse(data);
                 	initData(tasks);
                 	generateHtml();

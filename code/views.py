@@ -4,7 +4,9 @@ from task import TaskManager
 from flask import Flask
 from flask.helpers import url_for
 from flask.templating import render_template
+import os,sys
 
+os.chdir(os.path.dirname(sys.argv[0]))
 plan = Flask(__name__)
 tasks = TaskManager()
 
