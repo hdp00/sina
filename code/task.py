@@ -51,6 +51,7 @@ class Task():
             self._registerTime = datetime.datetime.now()
             
     def resetRegister(self, time):
+        '''恢复签到数据'''
         format = '%Y-%m-%d %H:%M'
         today = str(datetime.date.today())
         self._registerTime = datetime.datetime.strptime(today+' '+time, format)
@@ -74,6 +75,7 @@ class TaskManager():
     def __init__(self): 
         self.initDatabase()   
         self.initTask()
+        self.onTimer()
     
     def initTask(self):
         with open(self._fileName) as file:
@@ -127,15 +129,14 @@ class TaskManager():
     def onTimer(self):
         today = datetime.date.today()
         current = datetime.datetime.now()            
-        resetTime = datetime(today.year, today.month, today.day, 1)
+        resetTime = datetime.datetime(today.year, today.month, today.day, 1)
         if current < resetTime:
             self.reset()       
         
-        t = threading.Timer(1800, onTimer)
+        t = threading.Timer(1800, self.onTimer)
         t.start()
 
     def reset(self):
-        self._hasSaved = False
         for task in self._tasks:
             task.reset()  
        

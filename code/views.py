@@ -19,7 +19,6 @@ def index():
 def getTasks():
     name = flask.request.form.get('name')
     tasks.register(name)
-    print(name)
     
     resp = flask.make_response(tasks.generateJson())
     resp.headers['Access-Control-Allow-Origin'] = '*'
