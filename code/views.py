@@ -25,3 +25,17 @@ def getTasks():
     return resp
 
 
+import autoCompile.log
+compileLog = autoCompile.log.Log()
+
+@plan.route('/autoCompile/sendLog', methods=['POST'])
+def sendLog():
+    data = flask.request.form.get('log')
+    compileLog.send(data)
+    return 'success'
+
+@plan.route('/autoCompile/receiveLog', methods=['GET', 'POST'])
+def receiveLog():
+    return compileLog.receive()
+
+
