@@ -36,6 +36,7 @@ def sendLog():
 
 @plan.route('/autoCompile/receiveLog', methods=['GET', 'POST'])
 def receiveLog():
-    return compileLog.receive()
-
+    resp = flask.make_response(compileLog.receive())
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
